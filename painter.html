@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Painter Entry</title>
+</head>
+ 
+<body>
+
+<h2>Painter Entry Kevin</h2>
+
+<form>
+    <label for="form1_age">The hidden painter name</label>
+    <input type ="password" id="form1_pass" name="form1_pass" min=10 max=50 step=2 value=Monet> <br>
+
+    <label for="form1_nick">Guess the painter</label>
+    <input type ="text" id="form1_check" name="form1_check" autofocus> <br>
+
+    <input type="button" onclick="checkPainter()" value="Check the guess">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+let good = 0;
+let oops = 0;
+function checkPainter (){
+    console.log("Getting form values")
+    pw = document.getElementById("form1_pass").value
+    check = document.getElementById("form1_check").value
+    confirmed = pw == check;
+    
+    out = document.getElementById("result")
+    if(confirmed){
+        good += 1
+        alert("You got it right")
+    } else {
+        oops += 1
+        alert("Sorry")
+    }
+    out.innerHTML = "Good = " + good + "  Oops = " + oops
+}
+</script>
+
+</body>
+</html> 
