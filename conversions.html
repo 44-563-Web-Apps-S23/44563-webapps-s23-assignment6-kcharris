@@ -17,8 +17,26 @@
     <input type="button" onclick="convert()" value="Show conversions">
 </form>
 
-
 <p id="result">This text will be replaced </p>
+
+<form>
+    <input type="radio" id="r_average" value="mean" name="method" onclick="chooseOp(value)" >
+    <label for="rg1_red">averaged</label></br>
+  
+    <input type="radio" id="r_max" value="maximum" name="method" onclick="chooseOp(value)">
+    <label for="r_max">max</label></br>
+  
+    <input type="radio" id="r_min" value="minimum" name="method" onclick="chooseOp(value)">
+    <label for="rg1_green">min</label></br>
+
+    <input type="radio" id="r" onclick="chooseOp()" name="method" >
+    <label for="r">empty</label>
+  </form>
+
+<div id="radio_result">Text to be replaced</div>
+
+
+
 
 <script> 
 
@@ -34,6 +52,27 @@ function convert (){
     
     out = document.getElementById("result")
     out.innerHTML = toShow
+}
+
+function chooseOp(value){
+    radio_result = document.getElementById("radio_result")
+    base = parseFloat(document.getElementById("form1_amount").value)
+    rate = parseFloat(document.getElementById("form1_rate").value)
+    value = document.querySelector("input:checked").value
+    switch(value){
+        case "mean":
+            radio_result.innerHTML = value + " of " + base + " and " + rate + " is " + (base+rate)/2
+            break
+        case "minimum":
+            radio_result.innerHTML = value + " of " + base + " and " + rate + " is " + Math.min(base, rate)
+            break
+        case "maximum":
+            radio_result.innerHTML= value + " of " + base + " and " + rate + " is " + Math.max(base,rate)
+            break
+        default:
+            radio_result.innerHTML = "An empty fourth one"
+    }
+
 }
 </script>
 
