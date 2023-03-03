@@ -20,9 +20,22 @@
 
     <input type="button" onclick="selectBox()" value="Select a box">
 
-  </form>
+  </form><br>
+
+  <div id="result">This text will be replaced </div><br>
+
+  <form>
+    <label for="t_size">Enter a size</label>
+    <input type="text" id="t_size" value="size"><br>
+
+    <label for="t_price">Enter price</label>
+    <input type="text" id="t_price"><br>
+
+    <input type="button" value="Update the box" onclick="updateBox()">
+  </form><br>
       
-<div id="result">This text will be replaced </p>
+  <div id="result2">This text will be replaced </div>
+
 
 <script> 
 let my_candy_box = {}
@@ -41,6 +54,17 @@ function selectBox() {
   
   document.getElementById("result").innerHTML = JSON.stringify(my_candy_box)
   
+}
+
+function updateBox(){
+  size = document.getElementById("t_size").value
+  price = document.getElementById("t_price").value
+
+  my_candy_box["size"] = size
+  my_candy_box["price"] = price
+
+  document.getElementById("result2").innerHTML = JSON.stringify(my_candy_box)
+
 }
 
 </script>
