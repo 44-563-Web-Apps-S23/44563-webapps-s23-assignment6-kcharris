@@ -25,8 +25,8 @@
 function convert (){
     let toShow = ""
     console.log("Getting form values")
-    base = parseInt(document.getElementById("form1_amount").value)
-    rate = parseInt(document.getElementById("form1_rate").value)
+    base = parseFloat(document.getElementById("form1_amount").value)
+    rate = parseFloat(document.getElementById("form1_rate").value)
     
     for(let i = 0; i < 5; i++){
         toShow += ((base * (2**i)) + " is " + (base*(2**i) * rate) + "; ")
