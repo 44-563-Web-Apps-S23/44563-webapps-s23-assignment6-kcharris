@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>Currecy Conversions</head>
+ 
+<body>
+
+<h1>Kevin shows currency conversions</h1>
+<h2>Getting input</h2>
+
+<form>
+    <label for="form1_amount">Enter base amount </label>
+    <input type ="number" id="form1_amount" name="form1_amount" value=50> <br>
+
+    <label for="form1_rate">Enter the conversion rate</label>
+    <input type ="number" id="form1_rate" name="form1_rate" value=35 autofocus> <br>
+
+    <input type="button" onclick="convert()" value="Show conversions">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+
+function convert (){
+    let toShow = ""
+    console.log("Getting form values")
+    base = parseInt(document.getElementById("form1_amount").value)
+    rate = parseInt(document.getElementById("form1_rate").value)
+    
+    for(let i = 0; i < 5; i++){
+        toShow += ((base * (2**i)) + " is " + (base*(2**i) * rate) + "; ")
+    }
+    
+    out = document.getElementById("result")
+    out.innerHTML = toShow
+}
+</script>
+
+</body>
+</html> 
